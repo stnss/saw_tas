@@ -1,7 +1,7 @@
 <footer class="footer">
     <div class="container-fluid">
         <div class="copyright ml-auto">
-            2021 - {{ Date('Y') }}, made by Kelompok KKP
+            2021 - {{ Date('Y') }}, Kuliah Kerja Praktek
         </div>
     </div>
 </footer>
