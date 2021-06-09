@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\Alternatif;
 use App\Models\Kriteria;
 
 class SAWServices
@@ -12,15 +13,21 @@ class SAWServices
         $this->kriterias = Kriteria::all();
     }
 
-    public function perhitungan(array $data)
+    public function perhitungan(array $data): array
     {
         $minmax = $this->getMinMaxKriteriaValue($data);
         $normalisasi = $this->getNormalisasi($data, $minmax);
-        // $
+        $ranking = $this->getRankingAlternatif($normalisasi);
+        
+        uasort($ranking, function ($a, $b) {
+            return $a['sum'] < $b['sum'] ? 1 : -1;
+        });        
 
-        debug($minmax, $normalisasi);
-
-        return $data;
+        return [
+            'data' => $data,
+            'normalisasi' => $normalisasi,
+            'ranking' => $ranking
+        ];
     }
 
     private function getMinMaxKriteriaValue(array $data): array {
@@ -56,5 +63,22 @@ class SAWServices
         }
 
         return $data;
+    }
+
+    private function getRankingAlternatif(array $normalisasi): array {
+        $ranking = [];
+
+        foreach($normalisasi as $key => $value) {
+            $sum = 0;
+            $alt = Alternatif::where('id', $key)->first();
+            foreach($value as $idKri => $valueKri) {
+                $kriteria = $this->kriterias->find($idKri)->first();
+                $sum += $valueKri * $kriteria->bobot;
+            }
+
+            array_push($ranking, ['nama' => $alt->name, 'sum' => $sum]);
+        }
+
+        return $ranking;
     }
 }
