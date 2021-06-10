@@ -24,7 +24,8 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 ## Installation Steps
 
 Open Terminal
-Run `composer install`
+Run command
+    `composer install`
 Copy Paste .env.example file and rename to .env
 Edit  value "DB_DATABASE" in .env file into your database name
 Run `php artisan key:generate`
