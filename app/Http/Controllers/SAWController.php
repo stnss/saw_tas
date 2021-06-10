@@ -10,6 +10,9 @@ use Illuminate\Support\Collection;
 
 class SAWController extends Controller
 {
+    /**
+     * Function untuk menampilkan halaman SAW
+     */
     public function index()
     {
         $kriterias = Kriteria::all();
@@ -17,8 +20,12 @@ class SAWController extends Controller
         return view('content.saw.index', compact('kriterias', 'alternatifs'));
     }
 
+    /**
+     * Function untuk menerima input data yang ada pada halaman SAW
+     */
     public function store(SAWRequest $request)
     {
+        // Proses Perhitungan Metode SAW
         $data = (new SAWServices())->perhitungan($request->validated()['saw']);
         return view('content.saw.hasil', compact('data'));
     }
