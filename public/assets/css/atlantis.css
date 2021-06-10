@@ -1381,6 +1381,12 @@ body {
 .logo-header[data-background-color="blue2"] {
   background: #1269DB !important; }
 
+  .logo-header[data-background-color="sirio"] {
+    background: #009dde !important; }
+  
+  .navbar-header[data-background-color="sirio"] {
+    background: #009dde !important; }
+
 .navbar-header[data-background-color="blue"] {
   background: #1572E8 !important; }
 
