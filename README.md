@@ -1,13 +1,13 @@
-<p align="center"><a href="https://sirio.co.id" target="_blank"><img src="public/img/sirio.svg" width="400"></a></p>
+<p align="center"><a href="https://sirio.co.id" target="_blank"><img src="![laravel app](public/assets/img/sirio.svg')" width="400"></a></p>
 
-<p align="center">
+<!-- <p align="center">
 <a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+</p> -->
 
-## About Laravel
+<!-- ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
@@ -19,11 +19,25 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 - [Robust background job processing](https://laravel.com/docs/queues).
 - [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Laravel is accessible, powerful, and provides tools required for large, robust applications. -->
 
-## Learning Laravel
+## Installation Steps
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Open Terminal
+Run `composer install`
+Copy Paste .env.example file and rename to .env
+Edit  value "DB_DATABASE" in .env file into your database name
+Run `php artisan key:generate`
+Run `php artisan migrate`
+
+## How to Run
+Make sure MySql is running in your device
+Run `php artisan serve` in your terminal
+Open (http://localhost:8000) or (http://127.0.0.1:8000) in your browser
+
+
+
+<!-- Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
 If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
@@ -59,4 +73,4 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT). -->
