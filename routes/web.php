@@ -43,6 +43,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::group(['prefix' => 'saw', 'as' => 'saw.'], function () {
             Route::get('/', [SAWController::class, 'index'])->name('index');
             Route::post('/', [SAWController::class, 'store'])->name('store');
+            Route::post('/hasil/pdf', [SAWController::class, 'pdf'])->name('pdf');
         });
     });
 });

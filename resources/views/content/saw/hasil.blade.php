@@ -103,8 +103,30 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Ranking Alternatif</h4>
-
+                            <div class="card-head-row">
+                                <div class="card-title">Ranking Alternatif</div>
+                                <div class="card-tools">
+                                    <form action="{{ route('saw.pdf') }}" method="post" style="display: inline-block">
+                                        @csrf
+                                        @foreach ($data['ranking'] as $item)
+                                            <input type="hidden" name="data[{{ $loop->index }}][name]" value="{{ $item['nama'] }}" />
+                                            <input type="hidden" name="data[{{ $loop->index }}][sum]" value="{{ $item['sum'] }}" />
+                                        @endforeach
+                                        <button type="submit" class="btn btn-info btn-border btn-round btn-sm mr-2">
+                                            <span class="btn-label">
+                                                <i class="far fa-file-pdf"></i>
+                                            </span>
+                                            Pdf
+                                        </button>
+                                    </form>
+                                    {{-- <a href="#" class="btn btn-info btn-border btn-round btn-sm">
+                                        <span class="btn-label">
+                                            <i class="fa fa-print"></i>
+                                        </span>
+                                        Print
+                                    </a> --}}
+                                </div>
+                            </div>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
