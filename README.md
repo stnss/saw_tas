@@ -22,6 +22,7 @@ php artisan migrate
 ## How to Run
 
 Make sure MySql is running in your device
+
 Open Terminal and Run
 
 ```bash
