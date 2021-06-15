@@ -29,8 +29,7 @@ class SAWController extends Controller
      */
     public function store(SAWRequest $request)
     {
-        // Proses Perhitungan Metode SAW
-        $data = (new SAWServices())->perhitungan($request->validated()['saw']);
+        $data = (new SAWServices())->perhitungan($request->validated()['saw']); // Proses Perhitungan Metode SAW
         return view('content.saw.hasil', compact('data'));
     }
 
