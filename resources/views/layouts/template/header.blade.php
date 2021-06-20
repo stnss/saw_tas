@@ -9,7 +9,7 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <link rel="icon" href="{{ asset('assets/img/icon.ico') }}" type="image/x-icon" />
+    <link rel="icon" href="{{ asset('assets/img/sirio-ico.ico') }}" type="image/x-icon" />
 
     <!-- Fonts and icons -->
     <script src="{{ asset('assets/js/plugin/webfont/webfont.min.js') }}"></script>
@@ -37,7 +37,7 @@
 
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link rel="stylesheet" href="{{ asset('assets/css/demo.css') }}">
-
+    @yield('css')
     @livewireStyles
 </head>
 
@@ -48,7 +48,8 @@
             <div class="logo-header" data-background-color="sirio">
 
                 <a href="index.html" class="logo">
-                    <img src="{{ asset('assets/img/sirio.svg') }}" alt="navbar brand" class="navbar-brand">
+                    <img src="{{ asset('assets/img/sirio-horizontal.png') }}"
+                        width="135px" alt="navbar brand" class="navbar-brand">
                 </a>
                 <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse"
                     data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">

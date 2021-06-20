@@ -61,9 +61,9 @@
                                                     @foreach ($kriterias as $kriteria)
                                                         <td>
                                                             <div class="form-group">
-                                                                <input class="form-control"
+                                                                <input class="form-control input-filtered"
                                                                     name="saw[{{ $alternatif->id }}][{{ $kriteria->id }}]"
-                                                                    style="width:100px">
+                                                                    style="width:100px" value='{{ old("saw.$alternatif->id.$kriteria->id") }}'>
                                                             </div>
                                                         </td>
                                                     @endforeach
@@ -85,4 +85,47 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('css')
+    <style>
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+
+    </style>
+@endsection
+
+@section('js')
+    <script>
+        (function($) {
+            $.fn.inputFilter = function(inputFilter) {
+                return this.on("input keydown keyup mousedown mouseup select contextmenu drop", function() {
+                    if (inputFilter(this.value)) {
+                        this.oldValue = this.value;
+                        this.oldSelectionStart = this.selectionStart;
+                        this.oldSelectionEnd = this.selectionEnd;
+                    } else if (this.hasOwnProperty("oldValue")) {
+                        this.value = this.oldValue;
+                        this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
+                    } else {
+                        this.value = "";
+                    }
+                });
+            };
+        }(jQuery));
+
+        $(document).ready(function() {
+            $('.input-filtered').inputFilter(function(value) {
+                return /^\d*$/.test(value) && (value === "" || parseInt(value) <= 100);
+            });
+        })
+    </script>
 @endsection

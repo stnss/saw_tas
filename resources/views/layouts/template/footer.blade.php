@@ -45,7 +45,7 @@
 
 <!-- Atlantis JS -->
 <script src="{{ asset('assets/js/atlantis.min.js') }}"></script>
-
+@yield('js')
 @livewireScripts
 </body>
 

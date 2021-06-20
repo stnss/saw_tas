@@ -29,6 +29,7 @@ class SAWController extends Controller
      */
     public function store(SAWRequest $request)
     {
+        // return dd($request->all());
         $data = (new SAWServices())->perhitungan($request->validated()['saw']); // Proses Perhitungan Metode SAW
         return view('content.saw.hasil', compact('data'));
     }
@@ -40,7 +41,8 @@ class SAWController extends Controller
     {
         $data = $request->data;
 
-        $pdf = PDF::loadView('content.saw.pdf', ['data' => $data]);
+        set_time_limit(300);
+        $pdf = PDF::loadView('content.saw.pdf', ['data' => $data])->setPaper('a4');
 
         return $pdf->stream('Hasil Ranking.pdf');
     }
