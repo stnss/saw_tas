@@ -17,7 +17,7 @@
 </head>
 <body>
     <center>
-        <img src="{{ asset('assets/img/sirio-colour.jpg') }}" width="125px" height="125px">
+        Daftar Karyawan Terbaik
     </center>
     <br />
     <table cellspacing="0" cellpadding="5">
