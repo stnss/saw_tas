@@ -66,6 +66,8 @@ class SAWServices
             }
         }
 
+        // return dd($minmax);
+
         return $minmax;
     }
 
@@ -89,6 +91,8 @@ class SAWServices
             }
         }
 
+        // return dd($data);
+
         return $data;
     }
 
@@ -105,8 +109,8 @@ class SAWServices
 
             // Loop berdasarkan nilai untuk masing-masing kriteria
             foreach($value as $idKri => $valueKri) {
-                $kriteria = $this->kriterias->find($idKri)->first(); // Get nilai Kriteria berdasarkan id
-                $sum += $valueKri * $kriteria->bobot; // Jumlahkan keselurah nilai dari hasil nilai krteria * bobot masing-masing kriteria
+                $kriteria = $this->kriterias->where('id', $idKri)->first(); // Get nilai Kriteria berdasarkan id
+                $sum += ($valueKri * $kriteria->bobot); // Jumlahkan keselurah nilai dari hasil nilai krteria * bobot masing-masing kriteria
             }
 
             array_push($ranking, ['nama' => $alt->name, 'sum' => $sum]);
