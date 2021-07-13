@@ -17,7 +17,7 @@
 </head>
 <body>
     <center>
-        Daftar Karyawan Terbaik
+        <h2>Daftar Karyawan Terbaik {{ $tahun }}</h2>
     </center>
     <br />
     <table cellspacing="0" cellpadding="5">

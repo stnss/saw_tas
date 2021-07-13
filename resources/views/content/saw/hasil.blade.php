@@ -35,6 +35,7 @@
                                 <div class="card-tools">
                                     <form action="{{ route('saw.pdf') }}" method="post" style="display: inline-block">
                                         @csrf
+                                        <input type="hidden" name="tahun" value="{{ $tahun }}" />
                                         @foreach ($data['ranking'] as $item)
                                             <input type="hidden" name="data[{{ $loop->index }}][name]" value="{{ $item['nama'] }}" />
                                             <input type="hidden" name="data[{{ $loop->index }}][sum]" value="{{ $item['sum'] }}" />

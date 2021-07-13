@@ -28,21 +28,25 @@
                     @endif
                 </div>
                 <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title">List Kriteria</h4>
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
                         </div>
-                        @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
+                    @endif
+                    <div class="card">
                         <form action="{{ route('saw.store') }}" method="POST">
                             @csrf
+                            <div class="card-header">
+                                <div class="card-title">
+                                    <h4>List Kriteria</h4>
+                                    <input type="text" name="tahun" class="form-control" id="year" placeholder="Tahun" />
+                                </div>
+
+                            </div>
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table id="basic-datatables" class="display table table-striped table-hover">
